@@ -1,0 +1,28 @@
+
+#hotel_score {
+  padding-left: 8px;
+}
+
+.hotels-list {
+  min-height: 100px;
+}
+
+.hotels-list md-list-item star-rating md-icon{
+  color: yellowgreen;
+  font-size: 18px!important;
+  height: 18px;
+  width: 18px;
+  min-height: 18px;
+  min-width: 18px;
+}
+
+.hotel-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 5%;
+  margin-right: 16px;
+}
+
+// .selected { 
+//   background-color: rgb(220, 220, 220);
+//   }

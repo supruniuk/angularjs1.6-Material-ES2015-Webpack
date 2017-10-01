@@ -1,0 +1,59 @@
+<div layout="column" class="hotel-details">
+	<md-toolbar md-whiteframe="3">
+		<div class="md-toolbar-tools">
+
+			<md-button class="md-icon-button" 
+				ng-click="$ctrl.closeDetails()" 
+				hide-gt-xs aria-label="Back">
+				<md-icon md-font-set="material-icons">arrow_back</md-icon>
+			</md-button>
+
+			<h2 class="md-truncate"><span>{{::$ctrl.hotel.name}}</span></h2>
+
+			<span flex></span>
+
+			<md-menu>			
+				<md-button aria-label="Open hotels menu" class="md-icon-button" ng-click="$mdMenu.open($event)">
+					<md-icon md-font-set="material-icons">more_vert</md-icon>
+				</md-button>
+				<md-menu-content width="4">
+					<md-menu-item>
+						<md-button ng-click="$ctrl.favorite()">
+							<md-icon md-font-set="material-icons">{{$ctrl.isFavorite ? "star" : "star_border"}}</md-icon>
+							Favorite
+						</md-button>
+					</md-menu-item>
+
+					<md-menu-item>
+						<md-button ng-click="$ctrl.contact()">
+							<md-icon md-font-set="material-icons">chat</md-icon>
+							Contact hotel
+						</md-button>
+					</md-menu-item>
+
+					<md-menu-item>
+						<md-button ng-click="$ctrl.book()">
+							<md-icon md-font-set="material-icons">book</md-icon>
+							Book hotel
+						</md-button>
+					</md-menu-item>
+				</md-menu-content>
+			</md-menu>
+
+		</div>
+	</md-toolbar>
+
+	<md-content flex layout="column">
+		<md-tabs flex md-border-bottom md-no-ink-bar md-no-pagination>
+			<md-tab label="About">
+				<hotel-profile hotel="::$ctrl.hotel"></hotel-profile>			
+			</md-tab>
+			<md-tab label="Reviews">
+				<hotel-reviews stays="::$ctrl.hotel.stays"></hotel-reviews>
+			</md-tab>
+			<md-tab label="Location">
+				<hotel-location hotel-location="::$ctrl.hotel.name"></hotel-location>
+			</md-tab>
+		</md-tabs>
+	</md-content>
+</div>

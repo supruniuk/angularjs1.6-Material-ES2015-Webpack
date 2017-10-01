@@ -1,0 +1,17 @@
+<md-content>
+    <md-list flex class="hotel_reviews">
+        <md-list-item class="md-3-line" 
+            ng-repeat="stay in ::$ctrl.stays"
+            ng-if="::stay.review">                    
+            <review stay="stay" flex>
+                <div layout="row" layout-align="end center" class="like-action-row">
+                    <md-button class="md-icon-button" ng-click="$ctrl.likeReview(stay.review)">
+                      <md-icon class="review_like" md-font-set="material-icons">{{stay.review.is_liked ? "favorite" : "favorite_border"}}</md-icon>
+                    </md-button>
+                    <label class="md-caption">{{stay.review.likes_count}}</label>
+                </div>
+            </review>
+            <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+<md-content>

@@ -1,0 +1,76 @@
+  <md-toolbar>
+    <div class="md-toolbar-tools" flex>
+        <h2 class="md-truncate" flex>
+          Book "{{::$ctrl.hotel.name}}"
+        </h2>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding flex layout="column">
+      <form name="bookForm" id="bookForm" ng-submit="bookForm.$valid && $ctrl.book()">
+
+        <div layout-padding>
+          <md-input-container class="md-block">
+            <label>Customer name</label>
+            <input ng-model="$ctrl.user.name" disabled></input>
+          </md-input-container>
+        </div>
+
+        <div layout-gt-xs="row" layout="column" layout-padding>
+          <div flex-gt-xs>
+            <md-input-container class="md-block">
+              <label>Start date</label>          
+              <md-datepicker ng-model="$ctrl.booking.start_date" 
+                md-min-date="$ctrl.minDate" 
+                md-placeholder="Enter start date" 
+                ng-required="true"
+                name="start_date">
+              </md-datepicker>
+              <div ng-messages="bookForm.start_date.$error">
+                <div ng-message="valid">The entered value is not a date!</div>
+                <div ng-message="required">This date is required!</div>
+                <div ng-message="mindate">Date is too early!</div>
+              </div>              
+            </md-input-container>         
+          </div>
+
+          <div flex-gt-xs>
+            <md-input-container class="md-block">
+              <label>End date</label>          
+              <md-datepicker ng-model="$ctrl.booking.end_date"
+                md-min-date="$ctrl.booking.start_date"  
+                md-placeholder="Enter end date" 
+                ng-required="true"
+                name="end_date">
+              </md-datepicker>
+
+              <div ng-messages="bookForm.end_date.$error">
+                <div ng-message="valid">The entered value is not a date!</div>
+                <div ng-message="mindate">Date is too early!</div>
+                <div ng-message="required">This date is required!</div>
+              </div>
+
+            </md-input-container>         
+          </div>
+        </div>
+
+        <div layout-padding>
+          <md-input-container class="md-block" id="book-rooms">
+            <label>Number of the rooms</label>
+            <md-select name="rooms" ng-model="rooms">
+              <md-option ng-repeat="item in [1,2,3,'studio']"
+                value="{{item}}">{{::item }}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+
+        <div layout="row" layout-align="space-between center">
+          <md-button ng-click="$ctrl.cancel()">Cancel</md-button>
+          <md-button type="submit" class="md-raised md-primary">Book</md-button>
+        </div>
+
+      </form>
+
+  </md-content>
+
+  <!--<span class="md-caption" ng-show="$ctrl.errors">{{$ctrl.errors}}</span>-->

@@ -1,0 +1,11 @@
+<md-bottom-sheet class="md-list md-has-header">
+    <md-subheader>
+        Contact <span class="name">{{ $ctrl.hotel.name }}</span>
+    </md-subheader>
+    <md-list>
+        <md-list-item ng-repeat="item in $ctrl.items" ng-click="$ctrl.contactHotel(item)">
+            <md-icon md-svg-icon="{{ item.icon_url }}"></md-icon>
+            <div flex> {{item.name}} </div>
+        </md-list-item>
+    </md-list>
+</md-bottom-sheet> 

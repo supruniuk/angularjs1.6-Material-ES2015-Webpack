@@ -1,0 +1,84 @@
+<md-content layout-padding flex layout="column" class="hotel_info">
+  <form name="hotelForm" id="hotelForm" ng-submit="hotelForm.$valid && $ctrl.save()">
+    <div layout="column" layout-padding>
+      <md-input-container class="md-block" flex-gt-sm>
+        <label>Name</label>
+        <input ng-model="$ctrl.hotel.name" ng-required="true">
+      </md-input-container>     
+    </div>
+
+    <div layout="column" layout-align="start start">
+      <label class="md-button md-primary md-raised">
+      <input ng-show="false" layout-padding type="file" ngf-select ng-model="$ctrl.hotel.img" name="file" 
+                accept="image/*" ngf-max-size="10MB"/>Choose image file</label>
+
+                <!-- ngf-resize="{width: 1600, height: 900, centerCrop: true}" -->
+
+      <img class="profile_image" layout-padding ngf-src="$ctrl.hotel.img"></img>
+    </div>
+
+    <div layout-gt-xs="row" layout-padding>
+      <div flex>
+        <md-input-container class="md-block">
+          <md-icon md-font-set="material-icons">event_available</md-icon>
+          <md-select name="type" ng-model="$ctrl.hotel.availability" ng-required="true" placeholder="Availability">
+            <md-option value="available">Available</md-option>
+            <md-option value="not available">Not Available</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div flex>
+        <md-input-container class="md-block">
+          <md-icon md-font-set="material-icons">monetization_on</md-icon>
+          <input ng-model="$ctrl.hotel.rates" placeholder="Rates" ng-required="true">
+        </md-input-container>
+      </div>
+    </div>
+
+    <div layout-gt-xs="row" layout-padding>
+      <md-input-container class="md-block" >
+        <md-icon md-font-set="material-icons">phone</md-icon>
+        <input name="phone" ng-model="$ctrl.hotel.phone" ng-pattern="/^[(][0-9]{3}[)] [0-9]{3,4}-[0-9]{4}$/" placeholder="Phone" ng-required="true"/>
+        <div class="hint">(###) ###-####</div>
+        <div md-auto-hide="false" ng-messages="hotelForm.phone.$error">
+          <div md-auto-hide="false" ng-message="pattern">Please enter a valid phone number.</div>
+        </div>
+      </md-input-container>
+
+
+    </div>
+
+    <div layout-gt-xs="column" layout-padding>
+      <md-input-container class="md-block">
+        <md-icon md-font-set="material-icons">location_city</md-icon>
+        <input ng-model="$ctrl.hotel.location" placeholder="Location" ng-required="true">
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <md-icon md-font-set="material-icons">web</md-icon>
+        <input ng-model="$ctrl.hotel.website" placeholder="Website" ng-required="true">
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <md-icon md-font-set="material-icons">mail</md-icon>
+        <input ng-model="$ctrl.hotel.email" type="email" placeholder="Email address" ng-required="true">
+      </md-input-container>
+
+      <md-input-container class="md-block">
+        <label>About</label>
+        <textarea name="about" ng-model="$ctrl.hotel.about" md-maxlength="500"></textarea>
+        <div ng-messages="hotelForm.about.$error">
+          <div ng-message="md-maxlength">"About" must be no more than 300 characters long.</div>
+        </div>
+      </md-input-container>               
+    </div>
+  
+    <div layout="row" id="hotel_actions" layout-align="space-between center">
+      <md-button ng-click="$ctrl.cancel()">Cancel</md-button>    
+      <md-button ng-click="$ctrl.delete()" class="md-warn md-raised">Delete</md-button>    
+      <span flex></span>
+      <md-button type="submit" class="md-raised md-primary">Save</md-button>      
+    </div>
+
+  </form>
+</md-content>

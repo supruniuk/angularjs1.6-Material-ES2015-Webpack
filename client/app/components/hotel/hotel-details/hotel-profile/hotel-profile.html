@@ -1,0 +1,61 @@
+<md-content class="hotel_profile" flex>
+    <div class="card_media" flex>
+        <img ng-src="{{ $ctrl.hotel.img }}"></img>
+        <div layout="column" class="hotel-image-rating">
+            <star-rating rating="::$ctrl.hotel.avg_rating"></star-rating>
+            <span> Rating:  {{ ::$ctrl.hotel.avg_rating | number: 1 }}</span>
+        </div>
+    </div>     
+
+    <md-list flex layout="column" layout-padding>
+        <md-list-item class="md-2-line">
+            <md-icon md-font-set="material-icons">event_available</md-icon>
+            <div class="md-list-item-text">
+                <h3> {{::$ctrl.hotel.availability}} </h3>
+                <p> availability </p>
+            </div>
+            <md-divider md-inset></md-divider>
+        </md-list-item>    
+        <md-list-item class="md-2-line">
+            <md-icon md-font-set="material-icons">monetization_on</md-icon>
+            <div class="md-list-item-text">
+                <h3> {{::$ctrl.hotel.rates}} </h3>
+                <p> rate </p>
+            </div>
+            <md-divider md-inset></md-divider>
+        </md-list-item>
+
+        <md-list-item class="md-2-line">
+            <md-icon md-font-set="material-icons">mail</md-icon>
+            <div class="md-list-item-text" >
+                <h3> {{::$ctrl.hotel.email}} </h3>
+                <p> email </p>
+            </div>
+            <md-divider md-inset></md-divider>
+        </md-list-item>
+        <md-list-item class="md-2-line">
+            <md-icon md-font-set="material-icons">phone</md-icon>
+            <div class="md-list-item-text" >
+                <h3> {{::$ctrl.hotel.phone}} </h3>
+                <p> phone </p>
+            </div>
+            <md-divider md-inset></md-divider>
+        </md-list-item>	
+        <md-list-item class="md-2-line">
+            <md-icon md-font-set="material-icons">web</md-icon>
+            <div class="md-list-item-text" >
+                <h3> {{::$ctrl.hotel.website}} </h3>
+                <p> website </p>
+            </div>
+            <md-divider md-inset></md-divider>
+        </md-list-item>        
+        <md-list-item class="md-2-line">
+            <md-icon md-font-set="material-icons">location_city</md-icon>
+            <div class="md-list-item-text">
+                <h3> {{::$ctrl.hotel.location}} </h3>
+                <p> location </p>
+            </div>
+        </md-list-item>
+    </md-list>                                             											
+
+</md-content>

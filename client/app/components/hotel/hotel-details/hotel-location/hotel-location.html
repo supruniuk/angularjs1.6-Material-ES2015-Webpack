@@ -1,0 +1,8 @@
+<div layout-fill>
+  <ng-map center="{{::$ctrl.hotelLocation}}"
+    default-style="false"
+    scrollwheel="false"
+    map-initialized="$ctrl.onMapLoaded()">
+    <marker id='ID{{::$ctrl.hotelLocation}}' position="{{::$ctrl.hotelLocation}}"></marker>
+  </ng-map>
+</div>

@@ -1,0 +1,12 @@
+<div layout="row">
+  <!--For some reason this construction creates 5 watchers-->
+  <!--<md-icon md-font-set="material-icons" 
+    ng-repeat="number in ::[1,2,3,4,5]">
+      {{::$ctrl.rating >= number ? "star" : "star_border"}}
+  </md-icon>-->
+  <md-icon md-font-set="material-icons">{{::$ctrl.rating >= 1 ? "star" : "star_border"}}</md-icon>
+  <md-icon md-font-set="material-icons">{{::$ctrl.rating >= 2 ? "star" : "star_border"}}</md-icon>
+  <md-icon md-font-set="material-icons">{{::$ctrl.rating >= 3 ? "star" : "star_border"}}</md-icon>
+  <md-icon md-font-set="material-icons">{{::$ctrl.rating >= 4 ? "star" : "star_border"}}</md-icon>
+  <md-icon md-font-set="material-icons">{{::$ctrl.rating >= 5 ? "star" : "star_border"}}</md-icon>
+</div>

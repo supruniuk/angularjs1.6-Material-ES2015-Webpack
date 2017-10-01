@@ -1,0 +1,14 @@
+<md-list flex>
+  <div ng-repeat="stay in $ctrl.stays">
+    <md-list-item class="md-3-line">                    
+      <review stay="stay" flex>
+        <div layout="row" layout-align="end center" layout-margin>
+          <span flex></span>
+          <md-icon class="review_like" md-font-set="material-icons">{{$ctrl.getLikesIcon(stay)}}</md-icon>
+          <label class="md-caption">{{stay.review.likes_count}}</label>
+        </div>
+      </review>
+    </md-list-item>
+    <md-divider ng-if="!$last"></md-divider>          
+  </div>  
+</md-list>

@@ -1,0 +1,34 @@
+<div layout="row" flex>
+  <md-content class="hotels-list" flex>
+    <div id="infinite" infinite-scroll='$ctrl.infinite.nextPage()' 
+      infinite-scroll-disabled="$ctrl.isInfiniteDisabled"
+      infinite-scroll-container='".hotels-list"'
+      infinite-scroll-distance='1'>
+      <md-list-item class="md-3-line" md-no-ink 
+        ng-repeat="hotel in $ctrl.infinite.items" 
+        ng-click="$ctrl.selectHotel(hotel)">
+        <img ng-src="{{::hotel.img}}?w=360" class="hotel-avatar" />
+        <img ng-src="{{::hotel.img}}" ng-hide="true">
+        <div class="md-list-item-text" layout="column">
+          <h3>{{::hotel.name}}</h3>
+          <h4>{{::hotel.location}}</h4>
+          <p layout="row" layout-align="start center">
+            <star-rating rating="::hotel.avg_rating"></star-rating>
+            <span id="hotel_score">
+              {{::hotel.avg_rating | number: 1}}
+            </span>
+          </p>
+        </div>
+      </md-list-item>
+    </div>
+
+    <md-list-item md-no-ink ng-if="$ctrl.isLoadingListItem">
+      <div layout="row" 
+        layout-sm="column" 
+        layout-align="space-around" 
+        layout-padding flex>
+        <md-progress-circular md-mode="indeterminate" md-diameter="40"></md-progress-circular>
+      </div>
+    </md-list-item>    
+  </md-content>
+</div>

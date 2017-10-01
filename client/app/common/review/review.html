@@ -1,0 +1,33 @@
+<div layout="column" class="md-list-item-text" flex layout-padding>
+  <h3>{{::$ctrl.stay.related_to.name}}</h3>
+  <star-rating rating="::$ctrl.stay.rating" ng-if="!$ctrl.isEditMode"></star-rating>
+  <h4 class="md-subhead">Stay from <b>{{::$ctrl.stay.start_date }}</b>
+    to <b>{{::$ctrl.stay.end_date }}</b>
+  </h4>  
+  <div layout="row" ng-if="$ctrl.isEditMode">
+    <p>Rating: </p>
+    <md-radio-group class="edit-rating" ng-model="$ctrl.edited_stay.rating" layout="row">
+      <md-radio-button ng-repeat="rating in ::[1,2,3,4,5]" value="{{rating}}" class="md-primary">{{ rating }}</md-radio-button>
+    </md-radio-group>
+  </div>
+  
+  <p hm-read-more ng-if="!$ctrl.isEditMode"
+      hm-text="{{ $ctrl.stay.review.text }}" 
+      hm-limit="250" 
+      hm-more-text="Read more" 
+      hm-less-text="Read less"
+      hm-dots-class="readmore_dots"
+      hm-link-class="readmore_links">
+  </p><span flex></span>
+  <div ng-if="$ctrl.isEditMode">
+    <md-input-container class="md-block">
+      <label>Edit review text</label>
+      <textarea ng-model="$ctrl.edited_stay.review.text" md-maxlength="2000" ng-maxlength="2000"></textarea>
+    </md-input-container>
+    <section layout="row" layout-align="end center" layout-margin>
+      <md-button ng-click="$ctrl.cancelEdit()">Cancel</md-button>                  
+      <md-button ng-click="$ctrl.saveStay()" class="md-raised md-primary">Save</md-button>
+    </section>
+  </div>
+</div>
+<ng-transclude></ng-transclude>
